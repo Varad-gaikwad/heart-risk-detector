@@ -115,6 +115,15 @@ heart-risk-detector/
 ```
  
 ---
+
+## Output
+
+<img width="842" height="212" alt="image" src="https://github.com/user-attachments/assets/f4579c5c-420c-4482-9cde-c588b3d1cb88" />
+
+<img width="842" height="328" alt="image" src="https://github.com/user-attachments/assets/b367c9c4-364a-4b09-876c-20971f45a36c" />
+
+<img width="430" height="253" alt="image" src="https://github.com/user-attachments/assets/9def0bd6-3ecd-4177-a5ba-5f2d683548d3" />
+
  
 ## What I Learned
  
