@@ -6,6 +6,7 @@ The model is deployed using **Streamlit**, allowing anyone to use it through a c
 ---
 # 🚀 Live Demo
 
+https://heart-risk-detector.streamlit.app/
 
 ## Overview
  
