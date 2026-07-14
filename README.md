@@ -197,10 +197,16 @@ Run all cells. The last cell will prompt you to enter your health data interacti
  
 ```
 heart-risk-detector/
+
 │
-├── Heart_risk_detector.ipynb   # Main notebook
-├── heart_cleveland_upload.csv  # Dataset (download separately)
-└── README.md
+
+├── app.py                     # Streamlit frontend
+
+├── heart_risk_predictor.py    # ML model implementation
+
+├── heart_cleveland_upload.csv # Dataset
+
+└── README.md                  # Documentation
 ```
  
 ---
