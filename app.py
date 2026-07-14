@@ -1,5 +1,6 @@
 import streamlit as st
 import numpy as np
+import matplotlib.pyplot as plt
 from heart_risk_predictor import predict_heart_risk
 
 st.title("Heart Disease Risk Detector")
