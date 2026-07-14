@@ -1,9 +1,12 @@
 # Heart Disease Risk Detector 🫀
  
 A logistic regression model built **from scratch** using NumPy to predict the risk of heart disease — no scikit-learn, no shortcuts.
+The model is deployed using **Streamlit**, allowing anyone to use it through a clean web interface.
  
 ---
- 
+# 🚀 Live Demo
+
+
 ## Overview
  
 This project implements a complete binary classification pipeline on the Cleveland Heart Disease Dataset. Every core component — sigmoid function, cost function, gradient descent, Z-score normalization — is written manually in Python to demonstrate a deep understanding of the underlying mathematics.
@@ -33,30 +36,113 @@ This project implements a complete binary classification pipeline on the Clevela
  
 ---
  
-## How It Works
- 
-### 1. Data Loading & Preprocessing
-- Dataset loaded using Pandas
-- Features and labels separated into `x_train` and `y_train`
-- All features normalized using **Z-score normalization** to ensure stable gradient descent
-### 2. Sigmoid Function
-Converts any real number into a probability between 0 and 1:
- 
-$$\sigma(z) = \frac{1}{1 + e^{-z}}$$
- 
-### 3. Cost Function (with Regularization)
-Binary cross-entropy loss with L2 regularization to prevent overfitting:
- 
-$$J(w,b) = -\frac{1}{m} \sum_{i=1}^{m} \left[ y^{(i)} \log(f(x^{(i)})) + (1 - y^{(i)}) \log(1 - f(x^{(i)})) \right] + \frac{\lambda}{2m} \sum_{j=1}^{n} w_j^2$$
- 
-### 4. Gradient Descent
-Parameters `w` and `b` are updated iteratively:
- 
-$$w_j := w_j - \alpha \frac{\partial J}{\partial w_j}$$
-$$b := b - \alpha \frac{\partial J}{\partial b}$$
- 
-### 5. Prediction
-User inputs their health data → features are normalized using training statistics → model outputs a risk prediction.
+#  How It Works
+
+## 1. Data Loading
+
+The Cleveland Heart Disease Dataset is loaded using Pandas.
+
+---
+
+## 2. Feature Normalization
+
+Every feature is normalized using **Z-score Normalization**:
+
+$begin:math:display$
+
+z\=\\frac\{x\-\\mu\}\{\\sigma\}
+
+$end:math:display$
+
+This allows gradient descent to converge much faster.
+
+---
+
+## 3. Logistic Regression
+
+The probability is calculated using the Sigmoid function:
+
+$begin:math:display$
+
+\\sigma\(z\)\=\\frac1\{1\+e\^\{\-z\}\}
+
+$end:math:display$
+
+---
+
+## 4. Cost Function
+
+Binary Cross Entropy with L2 Regularization:
+
+$begin:math:display$
+
+J\(w\,b\)\=
+
+\-\\frac1m\\sum
+
+\\left\[
+
+y\\log\(f\(x\)\)
+
+\+\(1\-y\)\\log\(1\-f\(x\)\)
+
+\\right\]
+
+\+\\frac\\lambda\{2m\}\\sum w\^2
+
+$end:math:display$
+
+---
+
+## 5. Gradient Descent
+
+Weights are updated using:
+
+$begin:math:display$
+
+w\=w\-\\alpha\\frac\{\\partial J\}\{\\partial w\}
+
+$end:math:display$
+
+$begin:math:display$
+
+b\=b\-\\alpha\\frac\{\\partial J\}\{\\partial b\}
+
+$end:math:display$
+
+until convergence.
+
+---
+
+## 6. Web Prediction Flow
+
+
+
+User enters health data
+
+        │
+
+        ▼
+
+Feature Normalization
+
+        │
+
+        ▼
+
+Logistic Regression Model
+
+        │
+
+        ▼
+
+Probability Calculation
+
+        │
+
+        ▼
+
+Heart Disease Prediction
  
 ---
  
