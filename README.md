@@ -36,83 +36,106 @@ This project implements a complete binary classification pipeline on the Clevela
  
 ---
  
-#  How It Works
+## ⚙️ How It Works
 
 ## 1. Data Loading
 
-The Cleveland Heart Disease Dataset is loaded using Pandas.
+The Cleveland Heart Disease Dataset is loaded using **Pandas**. The dataset contains 12 clinical features used to predict whether a patient has heart disease.
 
 ---
 
 ## 2. Feature Normalization
 
-Every feature is normalized using **Z-score Normalization**:
+Before training, every feature is standardized using **Z-score Normalization** so that all features are on a similar scale.
 
-$begin:math:display$
+```text
+z = (x - μ) / σ
+```
 
-z\=\\frac\{x\-\\mu\}\{\\sigma\}
+Where:
 
-$end:math:display$
+- **x** = original feature value
+- **μ** = mean of the feature
+- **σ** = standard deviation of the feature
 
-This allows gradient descent to converge much faster.
+Normalization improves the convergence speed of Gradient Descent and prevents features with larger values from dominating the learning process.
 
 ---
 
 ## 3. Logistic Regression
 
-The probability is calculated using the Sigmoid function:
+The model computes a weighted sum of all input features and passes it through the **Sigmoid Function** to produce a probability between 0 and 1.
 
-$begin:math:display$
+```text
+σ(z) = 1 / (1 + e^(-z))
+```
 
-\\sigma\(z\)\=\\frac1\{1\+e\^\{\-z\}\}
+If the probability is:
 
-$end:math:display$
+- **≥ 0.5 → Heart Disease**
+- **< 0.5 → No Heart Disease**
 
 ---
 
 ## 4. Cost Function
 
-Binary Cross Entropy with L2 Regularization:
+The model minimizes the **Binary Cross-Entropy Loss** with **L2 Regularization** to reduce overfitting.
 
-$begin:math:display$
+```text
+Cost =
+-(1/m) Σ [ y log(f(x)) + (1-y) log(1-f(x)) ]
++ (λ / 2m) Σ w²
+```
 
-J\(w\,b\)\=
+Where:
 
-\-\\frac1m\\sum
-
-\\left\[
-
-y\\log\(f\(x\)\)
-
-\+\(1\-y\)\\log\(1\-f\(x\)\)
-
-\\right\]
-
-\+\\frac\\lambda\{2m\}\\sum w\^2
-
-$end:math:display$
+- **m** = number of training examples
+- **λ** = regularization parameter
+- **w** = model weights
 
 ---
 
 ## 5. Gradient Descent
 
-Weights are updated using:
+The model learns by repeatedly updating its parameters in the direction that reduces the cost function.
 
-$begin:math:display$
+```text
+w = w - α × ∂J/∂w
+```
 
-w\=w\-\\alpha\\frac\{\\partial J\}\{\\partial w\}
+```text
+b = b - α × ∂J/∂b
+```
 
-$end:math:display$
+Where:
 
-$begin:math:display$
+- **α** = learning rate
+- **J** = cost function
 
-b\=b\-\\alpha\\frac\{\\partial J\}\{\\partial b\}
-
-$end:math:display$
-
-until convergence.
+The optimization continues for **1000 iterations** until the model converges.
 
 ---
+
+## 6. Prediction Pipeline
+
+
+User Input
+     │
+     ▼
+Feature Normalization
+     │
+     ▼
+Weighted Sum (w·x + b)
+     │
+     ▼
+Sigmoid Function
+     │
+     ▼
+Probability
+     │
+     ▼
+Heart Disease Prediction
+
 
 ## 6. Web Prediction Flow
 
