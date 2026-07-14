@@ -116,26 +116,6 @@ The optimization continues for **1000 iterations** until the model converges.
 
 ---
 
-## 6. Prediction Pipeline
-
-
-User Input
-     │
-     ▼
-Feature Normalization
-     │
-     ▼
-Weighted Sum (w·x + b)
-     │
-     ▼
-Sigmoid Function
-     │
-     ▼
-Probability
-     │
-     ▼
-Heart Disease Prediction
-
 
 ## 6. Web Prediction Flow
 
